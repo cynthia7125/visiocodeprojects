@@ -1,0 +1,181 @@
+<html>
+  <head>
+    <title>shoppers</title>	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <!-- <link rel="stylesheet" href="style.css" /> -->
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="js/jquery2.js"></script>
+
+		
+  <link rel="icon" type="image/icon" href="favicon.jpg">
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+    }
+    
+    #myInput {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+    
+    #data {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+      font-size: 18px;
+    }
+    
+    #data th, #data td {
+      text-align: left;
+      padding: 12px;
+    }
+    
+    #data tr {
+      border-bottom: 1px solid #ddd;
+    }
+    
+    #data tr.header, #data tr:hover {
+      background-color: #f1f1f1;
+    }
+    #data tr td {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+#data {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#data tr td:hover:not(.header) {
+  background-color: rgba(189, 189, 189, 0.966);
+} 
+    
+        table{
+          border:0px solid black;
+          width:97%;
+          color:black;
+          font-family:cursive;
+          font-size:25px;
+          text-align: left;
+          border-collapse: collapse;
+        }
+        th{
+          background-color: #87CEEB;
+          color:black;
+          
+        }
+        td{
+          padding-top:8px
+        }
+        table, td, th {
+          border: 1px solid black;
+          font-size:22px;
+            }
+        tr:nth-child(even) {
+          background-color: #f2f2f2
+        }
+        
+          .st{
+            width:500px;
+            height:40px;
+            
+          }
+          label{
+            float:left;
+            font-size:20px;
+            }
+            body{
+    
+            background: url("offers_background.jpg");
+            background-size: 100%;
+            opacity: 0.8;
+            }
+        #tv {
+          position: relative;
+        float: top;
+          width: 42px;
+          height: 32px;
+          margin: 20px 0;
+          background: silver;
+          border-radius: 50% / 10%;
+          color: white;
+          text-align: center;
+          text-indent: .1em;
+        }
+        #tv:before {
+          content: '';
+          position: absolute;
+          top: 10%;
+          bottom: 10%;
+          right: -5%;
+          left: -5%;
+          background: inherit;
+          border-radius: 5% / 50%;
+        }
+      .topright {
+      position: absolute;
+      bottom: 25px;
+      left: 45px;
+      font-size: 18px;
+    }
+    .quotes {display: none;}
+      </style>
+  </head>
+  <body class="descriptio" >
+    
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8" id="signup_msg">
+            <!--Alert from signup form-->
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        </div>
+        <center>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="panel panel-primary" style="width:400px">
+              <div class="panel-heading" style="padding: 5px; background-color:#87CEEB; color: black; font-size: 20px" value = "Items">
+        <input id = "myInput" style="padding:2px; margin:2px; border-radius: 5px; color: black;" type="text" name="search" placeholder="Enter item name here..." required/>
+        
+            
+            </div>
+              <div  class="panel-body" >
+            <table id="data" align = "center" border = "1" style = "border-collapse: collapse; border: solid 1px #ddffff; width: 60%;"></table>
+            
+            </table>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+  <!--add icon library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!--add font awesome icons-->
+       <a href="#" style="size:38px; margin-right:18px;" class="fa fa-facebook"></a>
+       <a href="#" style="size:38px; margin-right:18px;" class="fa fa-twitter"></a>
+       <a href="#" style="size:38px; margin-right:18px;" class="fa fa-instagram"></a>
+       <a href="#" style="size:38px; margin-right:18px;" class="fa fa-google"></a>
+</center>
+<script type="text/javascript" src="index.js"></script>
+<!-- <script type="text/javascript" src="/js/map.js"></script> -->
+<script type="text/javascript" src="/js/map_viewer.js"></script>
+  </body>
+</html>

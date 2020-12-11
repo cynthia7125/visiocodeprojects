@@ -1,0 +1,188 @@
+<?php
+	session_start();
+	require_once "connect.php";
+?>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>shoppers</title>	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<script src="js/jquery2.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		
+  <link rel="icon" type="image/icon" href="favicon.jpg">
+	
+  <style type="text/css">
+		table{
+			border:0px solid black;
+			width:97%;
+			color:black;
+			font-family:cursive;
+			font-size:25px;
+			text-align: left;
+			border-collapse: collapse;
+		}
+		th{
+			background-color: #87CEEB;
+			color:black;
+			
+		}
+		td{
+			padding-top:8px
+		}
+		table, td, th {
+			border: 1px solid black;
+			font-size:22px;
+        }
+		tr:nth-child(even) {
+			background-color: #f2f2f2
+		}
+		
+		  .st{
+			  width:500px;
+			  height:40px;
+			  
+		  }
+		  label{
+			  float:left;
+			  font-size:20px;
+        }
+        body{
+
+        background: url("offers_background.jpg");
+        background-size: 100%;
+        opacity: 0.8;
+        }
+		#tv {
+      position: relative;
+	  float: top;
+      width: 42px;
+      height: 32px;
+      margin: 20px 0;
+      background: silver;
+      border-radius: 50% / 10%;
+      color: white;
+      text-align: center;
+      text-indent: .1em;
+    }
+    #tv:before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      bottom: 10%;
+      right: -5%;
+      left: -5%;
+      background: inherit;
+      border-radius: 5% / 50%;
+    }
+	.topright {
+  position: absolute;
+  bottom: 25px;
+  left: 45px;
+  font-size: 18px;
+}
+.quotes {display: none;}
+	</style>
+	
+  </head>
+  <body class="descriptio" >
+	  
+  
+                <div class="container" >
+				<h2 style="color:black; position:absolute;" class="quotes">Welcome <?php  print $_SESSION["username"]; ?></h2>
+
+				</div>
+       
+				
+<br><br>
+
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8" id="signup_msg">
+				<!--Alert from signup form-->
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		</div>
+		<center>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="panel panel-primary" style="width:500px">
+					<div class="panel-heading" style="background-color:#87CEEB; color: black; font-size: 20px">Items
+					
+					
+
+		<form action="search.php" method="POST" style="float: right;">
+		<input style=" margine-top:25px; border-radius: 5px; color: black;" type="text" name="search" placeholder="Enter item name here..." required/>
+		<button style="color: black;" name="submit">search</button></form>
+				
+				</div>
+					<div class="panel-body" >
+
+
+
+
+
+
+
+	</div>
+	</div>
+
+
+	
+<!--<ul class="listing" method="post" action="cart.html">
+  <li>
+    <h2 style="color:black;">Bread</h2>
+    <img src="image/bread.jpg">
+    <div class="cta">
+	<div name="Item_unit_cost" id="get_Item_unit_cost" ></div>
+	 <hr>
+	<a href="cart.html" name="add_to_cart">Add to cart</a>
+	</div>
+  </li>
+</ul>-->
+
+
+
+<!--add icon library-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--add font awesome icons-->
+	 <a href="#" class="fa fa-facebook"></a>
+     <a href="#" class="fa fa-twitter"></a>
+	 <a href="#" class="fa fa-instagram"></a>
+     <a href="#" class="fa fa-google"></a>
+
+</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+	
+	</center>
+	<script type="text/javascript">
+		(function() {
+
+var quotes = $(".quotes");
+
+function showNextQuote() {
+  quotes
+	.fadeIn(2000)
+	.delay(2000)
+	.fadeOut(2000);
+}
+
+showNextQuote();
+
+})();
+		</script>
+  </body>
+</html>

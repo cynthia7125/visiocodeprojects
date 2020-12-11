@@ -1,0 +1,58 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "c034838d22ad32c600af7b804f2e1a8a",
+    "packages": [
+        {
+            "name": "base-reality/php-to-javascript",
+            "version": "0.1.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Danack/PHP-to-Javascript.git",
+                "reference": "6fc818592c8c9bfc55048a33c9eb38b03306f69d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Danack/PHP-to-Javascript/zipball/6fc818592c8c9bfc55048a33c9eb38b03306f69d",
+                "reference": "6fc818592c8c9bfc55048a33c9eb38b03306f69d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPToJavascript": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-NC-SA-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Ackroyd",
+                    "email": "Danack@basereality.com",
+                    "homepage": "http://www.basereality.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP to Javascript converter for automatically converting PHP source code (including Classes) into Javascript.",
+            "support": {
+                "issues": "https://github.com/Danack/PHP-to-Javascript/issues",
+                "source": "https://github.com/Danack/PHP-to-Javascript/tree/master"
+            },
+            "time": "2013-04-19T17:15:05+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

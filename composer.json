@@ -1,0 +1,7 @@
+{
+    "name": "monolog/visiocodeprojects",
+    "description": "converter",
+   "require" : { 
+        "base-reality/php-to-javascript": "0.1.16" 
+    }
+}
