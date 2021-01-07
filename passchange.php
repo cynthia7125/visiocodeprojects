@@ -3,6 +3,7 @@
 ?>
 <!DOCTYPE html>
      <head>
+     <link rel="shortcut icon" href="http://localhost/visiocodeprojects/image/favicon.ico" /> 
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 		<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -114,7 +115,11 @@
                 $sql=mysqli_query($conn, "UPDATE users SET password=md5('$newpassword') WHERE email='$email'");
                 if($sql)
                 {
-                echo "You have successfully changed your password";
+                echo "<div class='panel panel-success'>
+                        <div class='panel-body'>
+                                <p>You have successfully changed your password</p>
+                        </div>
+                      </div>";
                 }
         }
 }

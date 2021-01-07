@@ -20,6 +20,7 @@ if ($conn->query($sql) === TRUE) {
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="http://localhost/visiocodeprojects/image/favicon.ico" /> 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="mystyle.css" />

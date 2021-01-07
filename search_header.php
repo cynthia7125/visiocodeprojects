@@ -1,10 +1,14 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Administrator</title>
+	<title>Administrator</title>
+	<link rel="shortcut icon" href="http://localhost/visiocodeprojects/image/favicon.ico" /> 
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 	<script src="js/jquery2.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -60,7 +64,7 @@ opacity: 0.8;
   </head>
 <body style="margin:0px;" method="POST" >
 <?php
-$display_users ="SELECT permissions FROM users" ;
+$display_users ="SELECT * FROM users where username = '{$_SESSION['username']}'" ;
 					  
 $result = $conn->query($display_users);
 
@@ -81,20 +85,11 @@ if ($result->num_rows > 0) {
             </div>
             </div>
         </div>
-        <p></br><br/></p>
-        <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8" id="signup_msg">
-                <!--Alert from signup form-->
-            </div>
-            <div class="col-md-2"></div>
-        </div>
-        </div>
+      
 <?php
 		}
 
-		else if($row["permissions"] == 1) {
+		if($row["permissions"] == 1) {
 	?>
 
 		<div class="navbar navbar-inverse navbar-fixed-top">

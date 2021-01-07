@@ -11,7 +11,8 @@ $sql = mysqli_query($conn, "SELECT item.Item_name, item.Item_image, item.Item_un
 $data = array();
 while($row = mysqli_fetch_assoc($sql))
 {
-        $data[] = $row;
+    $data[] = $row;
 }
+
 echo json_encode($data);
 ?>

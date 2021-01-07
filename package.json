@@ -27,14 +27,16 @@
     "parallelshell": "^3.0.2",
     "rimraf": "^2.6.2",
     "uglifyjs": "^2.4.11",
-    "usemin-cli": "^0.5.1"
+    "usemin-cli": "^0.6.0"
   },
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.1.13",
     "bootstrap": "^4.3.1",
     "bootstrap-social": "5.1.1",
+    "chart.js": "^2.9.4",
     "font-awesome": "4.7.0",
     "jquery": "^3.4.1",
     "mysql": "^2.18.1",
-    "popper.js": "1.12.9"
+    "popper.js": "^1.12.9"
   }
 }

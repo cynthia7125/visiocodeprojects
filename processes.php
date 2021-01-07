@@ -46,10 +46,11 @@
 		}
     }
     if(isset($_POST["New_offer"])){
+		$Supermarket_ID = $_POST["Supermarket_ID"];
 		$Offer_name = $_POST["Offer_name"];
 		$Offer_duration = $_POST["Offer_duration"];
 		
-		$sql = "INSERT INTO offers (Offer_name, Offer_duration) VALUES ('$Offer_name', '$Offer_duration')";
+		$sql = "INSERT INTO offers (Supermarket_ID, Offer_name, Offer_duration) VALUES ('$Supermarket_ID', '$Offer_name', '$Offer_duration')";
 
 		if ($conn->query($sql) === TRUE) {
 			$conn->close();
@@ -60,6 +61,7 @@
 		}
 	}	
 	if(isset($_POST["edit_offer"])){
+		
 		$Offer_name = $_POST["Offer_name"];
 		$Offer_duration = $_POST["Offer_duration"];
         $Offer_ID = $_POST["Offer_ID"];
@@ -108,11 +110,12 @@
 	if(isset($_POST["edit_user"])){
 		$User_ID = $_POST["user_ID"];
 		$username = $_POST["username"];
-        $email = $_POST["email"];
+		$email = $_POST["email"];
+		$permissions = $_POST["permissions"];
         $password = $_POST["password"];
 		
 		
-		$sql = "UPDATE users SET username = '$username', email = '$email', password = '$password' 
+		$sql = "UPDATE users SET username = '$username', email = '$email', permissions = '$permissions', password = '$password' 
 		WHERE User_ID = '$User_ID' LIMIT 1";
 
 		if ($conn->query($sql) === TRUE) {
@@ -185,14 +188,15 @@
 		$Item_category_ID = $_POST["Item_category_ID"];
 		$Offer_ID = $_POST["Offer_ID"];	
 		$Item_name = $_POST["Item_name"];
-        $Item_description = $_POST["Item_description"];
+		$Item_description = $_POST["Item_description"];
+		$Original_unit_cost = $_POST["Original_unit_cost"];
         $Item_unit_cost = $_POST["Item_unit_cost"];
         $Item_quantity_in_stock= $_POST["Item_quantity_in_stock"];
         $Item_image = $_POST["Item_image"];
        
 		
-		$sql = "INSERT INTO item (Item_category_ID, Offer_ID, Item_name, Item_description, Item_unit_cost, Item_quantity_in_stock, Item_image) 
-        VALUES ('$Item_category_ID', '$Offer_ID', '$Item_name', '$Item_description', '$Item_unit_cost', '$Item_quantity_in_stock', '$Item_image')";
+		$sql = "INSERT INTO item (Item_category_ID, Offer_ID, Item_name, Item_description, Original_unit_cost, Item_unit_cost, Item_quantity_in_stock, Item_image) 
+        VALUES ('$Item_category_ID', '$Offer_ID', '$Item_name', '$Item_description', '$Original_unit_cost', '$Item_unit_cost', '$Item_quantity_in_stock', '$Item_image')";
 
 		if ($conn->query($sql) === TRUE) {
 			$conn->close();
@@ -206,7 +210,8 @@
 		$Item_category_ID = $_POST["Item_category_ID"];
 		$Offer_ID = $_POST["Offer_ID"];
 		$Item_name = $_POST["Item_name"];
-        $Item_description = $_POST["Item_description"];
+		$Item_description = $_POST["Item_description"];
+		$Original_unit_cost = $_POST["Original_unit_cost"];
         $Item_unit_cost = $_POST["Item_unit_cost"];
         $Item_quantity_in_stock = $_POST["Item_quantity_in_stock"];
         $Item_image = $_POST["Item_image"];
@@ -215,7 +220,7 @@
 		$Item_ID = $_POST["Item_ID"];
 		
 		$sql = "UPDATE item SET Item_category_ID = '$Item_category_ID', Offer_ID = '$Offer_ID',
-        Item_name = '$Item_name', Item_description = '$Item_description', Item_unit_cost ='$Item_unit_cost', 
+        Item_name = '$Item_name', Item_description = '$Item_description', Original_unit_cost = '$Original_unit_cost', Item_unit_cost ='$Item_unit_cost', 
         Item_quantity_in_stock = $Item_quantity_in_stock, Item_image = '$Item_image' 
         WHERE Item_ID = '$Item_ID' LIMIT 1";
 

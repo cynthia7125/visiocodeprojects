@@ -1,9 +1,21 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Administrator</title>
+	<title>Administrator</title>
+	<link rel="shortcut icon" href="http://localhost/visiocodeprojects/image/favicon.ico" /> 
 	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="http://localhost/visiocodeprojects/admin/lumino/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://localhost/visiocodeprojects/admin/lumino/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://localhost/visiocodeprojects/admin/lumino/css/datepicker3.css" rel="stylesheet">
+	<link href="http://localhost/visiocodeprojects/admin/lumino/css/styles.css" rel="stylesheet">
+
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 	<script src="js/jquery2.js"></script>
@@ -49,8 +61,8 @@
   }
   body{
 
-background: url("offers_background.jpg");
-
+/* background: url("offers_background.jpg"); */
+background: #e9ecf2;
 background-size: 100%;
 opacity: 0.8;
 }
@@ -59,34 +71,34 @@ opacity: 0.8;
 	
   </head>
 <body style="margin:0px;" method="POST" >
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">	
-            <div class="navbar-header" style="width: 100%">
-                <!-- <a href="#" class="navbar-brand">Shoppers</a> -->
-                <div class="navbar-brand">Edit Items</div>
-                <div class="navbar-brand"><a href = "itemcategory.php">Edit Items Category</a></div>
-                <div class="navbar-brand"><a href = "offers.php">Edit Offers</a></div>
-				<form action="processes.php" method="POST" style="float:right; ">
-		<input style=" margin-top:15px; border-radius: 5px; color: black; width: 200px;" type="text" name="search" 
-		placeholder="Enter item name..." required/>
-		<button style="color: black;" name="submit">search</button></form>
-            </div>
-        
-        </div>
-        </div>
-        <p></br><br/></p>
-        <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8" id="signup_msg">
-                <!--Alert from signup form-->
-            </div>
-            <div class="col-md-2"></div>
-        </div>
-        </div>
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="#"><span>Offers</span>Admin</a>
+				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/itemcategory.php"><span>Item Categories</span></a></div>
+				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/offers.php"><span>Offers</span></a></div>
+				<div class="navbar-brand">Items</div>
+				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/admin/lumino/index.php"><span>Dashboard</span></a></div>	
+				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/barchart.php"><span>Charts</span></a></div>
+				<div class="navbar-brand"><a href="http://localhost/visiocodeprojects/login.php"><span><em class="fa fa-power-off"> logout</em></span></a></div>
 
-<br>
-<br>
+				<form action="processes.php" method="POST" style="float:right; ">
+				<input style=" margin-top:15px; border-radius: 5px; color: black; width: 200px;" type="text" name="search" 
+				placeholder="Enter item name..." required/>
+				<button style="color: black;" name="submit">search</button></form>
+			</div>
+				<ul class="nav navbar-top-links navbar-right">
+				</ul>
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+
+		<p></br></br></p>
+
 <center>
   <div class="row">
 	<div class="col-md-2"></div>
@@ -129,7 +141,8 @@ opacity: 0.8;
 					
                     <?php
 
-                    $sql = "SELECT * FROM offers";
+					$sql = "SELECT * FROM offers, supermarkets WHERE offers.activation = 1 and supermarkets.Supermarket_ID = offers.Supermarket_ID 
+					and supermarkets.Supermarket_name = '".$_SESSION['username']."' ";
                     $result = $conn->query($sql);
                         // output data of each row
                     ?>
@@ -153,7 +166,7 @@ opacity: 0.8;
 
 <input class="st" type = "text" placeholder="Enter Item unit cost" name="Item_unit_cost" <?php if(isset($_GET["edit_item"])){ ?>value = "<?php print $spot_item_row["Item_unit_cost"]; ?>" <?php } ?> /><br /><br />
 <input class="st" type = "text" placeholder="Enter Item quantity in stock" name="Item_quantity_in_stock" <?php if(isset($_GET["edit_item"])){ ?>value = "<?php print $spot_item_row["Item_quantity_in_stock"]; ?>" <?php } ?> /><br /><br />
-<input class="st" type = "text" placeholder="Enter Image URL" name="Item_image" <?php if(isset($_GET["edit_item"])){ ?>value = "<?php print $spot_item_row["Item_image"]; ?>" <?php } ?> /><br /><br />
+<input class="st" type = "text" placeholder="Enter Image URL eg. image_name.jpg" name="Item_image" <?php if(isset($_GET["edit_item"])){ ?>value = "<?php print $spot_item_row["Item_image"]; ?>" <?php } ?> /><br /><br />
 <!-- <textarea class="st" placeholder = "Enter Item Address" style="width:500px; height:100px;" name="Item_address" /><?php if(isset($_GET["edit_item"])) {  print $spot_item_row["Item_address"];  } ?> </textarea><br /><br /> -->
 
 	<?php if(isset($_GET["edit_item"])){ ?>
@@ -184,7 +197,8 @@ opacity: 0.8;
   
 <?php
 
-	$sql = "SELECT * FROM item WHERE activation = 1 ORDER BY Item_name DESC";
+	$sql = "SELECT * FROM item, offers, supermarkets WHERE item.activation = 1 and supermarkets.Supermarket_ID = offers.Supermarket_ID 
+	and item.Offer_ID = offers.Offer_ID and supermarkets.Supermarket_name = '".$_SESSION['username']."' ORDER BY Item_name DESC";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -235,13 +249,14 @@ opacity: 0.8;
 
 <?php
 	} else {
-    echo "No Records available       ";
+    echo "<strong><h2 style = 'color:grey; font-style: italic;'>You have NO activated items</h2></strong>";
 }
 ?>
- 
+ </table>
  <?php
 
-$sql = "SELECT * FROM item WHERE activation = 2 ORDER BY Item_name DESC";
+$sql = "SELECT * FROM item, offers, supermarkets WHERE item.activation = 2 and supermarkets.Supermarket_ID = offers.Supermarket_ID 
+and item.Offer_ID = offers.Offer_ID and supermarkets.Supermarket_name = '".$_SESSION['username']."' ORDER BY Item_name DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -290,7 +305,7 @@ while($row = $result->fetch_assoc()) {
 
 <?php
 } else {
-echo "No Records available";
+echo "<strong><h2 style = 'color:grey; font-style: italic;'>You have NO De-activated items</h2></strong>";
 }
 ?>
   <?php

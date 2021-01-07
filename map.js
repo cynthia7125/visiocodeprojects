@@ -1,43 +1,61 @@
-// Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
-      var map, infoWindow;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -1.2966786, lng: 36.730956},
-          zoom: 10
-        });
-        infoWindow = new google.maps.InfoWindow;
+var ajax = new XMLHttpRequest();
+var method = "GET";
+var url = "http://localhost/visiocodeprojects/map.php";
+var asynchronous = true;
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+ajax.open(method, url, asynchronous);
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
+// ajax.send();
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
-    
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSnfheqjWjTJw1hvxdnFa1GVpokn_uq6M&callback=initMap"
-    
+// ajax.onreadystatechange = function(){
+//   if (this.readyState == 4 && this.status == 200){
+
+//       var local = this.responseText;
+        
+//          console.log(local);
+
+
+navigator.geolocation.getCurrentPosition(
+  function (position) {
+      initMap(document.getElementById('long').value = position.coords.latitude, 
+      document.getElementById('lat').value = position.coords.longitude)
+  },
+  function errorCallback(error) {
+      console.log(error)
+  }
+);
+function initMap() {
+  var test = '<?php implode($lat); ?>'; 
+var pointA = new google.maps.LatLng(document.getElementById('long').value, document.getElementById('lat').value),
+pointB = new google.maps.LatLng(-1.3099, 36.8142),
+  myOptions = {
+    zoom: 10,
+    center: pointA
+  },
+  map = new google.maps.Map(document.getElementById('map'), myOptions),
+  // Instantiate a directions service.
+  directionsService = new google.maps.DirectionsService,
+  directionsDisplay = new google.maps.DirectionsRenderer({
+    map: map
+  })
+
+
+// get route from A to B
+calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB);
+
+}
+function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
+directionsService.route({
+origin: pointA,
+destination: pointB,
+travelMode: google.maps.TravelMode.DRIVING
+}, function(response, status) {
+if (status == google.maps.DirectionsStatus.OK) {
+directionsDisplay.setDirections(response);
+}else {
+window.alert('Directions request failed due to ' + status);
+}
+});
+}         
+//   }
+// }

@@ -38,29 +38,30 @@ ajax.onreadystatechange = function(){
         html += "<hr><div name='Item_unit_cost' style='float:left; width:45%; color:black;''>Ksh."+itemunitcost+"</div>";
         html += "<div style='color:orange; float:right; width:45%; font-size:17px;' name='Saved_percentage' >-"+savedpercentage+"%</div><br/>";
         html += "<div name='Original_unit_cost' style='font-size:17px; width:45%; float: left; text-decoration: line-through; color:grey;'>Ksh."+originalunitcost+"</div>";
-        html += "<br/><div id='map'><a href='http://localhost/visiocodeprojects/map.html'>Directions to "+supermarketname+"</a></div> ";
+        html += "<br/><div id='maps'><a href='http://localhost/visiocodeprojects/map.html' target='_blank'>Directions to "+supermarketname+"</a></div> ";
         html += "</div>";
-        html += "</td></tr>";      
+        html += "</td></tr>";   
+
+        
         }
       }
+document.getElementById("data").innerHTML = html;
     }
-    document.getElementById("data").innerHTML = html;
+  }
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("data");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      } 
     }
   
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("data");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[0];
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          } 
-        }
-

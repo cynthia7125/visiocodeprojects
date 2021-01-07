@@ -24,6 +24,7 @@
           "activeTab",
           "http://localhost/visiocodeprojects/*",
           "https://ajax.googleapis.com/"
+          
       ],
       "content_scripts": [
         {

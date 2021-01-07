@@ -31,9 +31,10 @@ include ("connect.php");
 			}
 			else if($permissions < 1){
 				header("Location:offers.php");
+				// header("Location:http://localhost/visiocodeprojects/admin/lumino/index.php");
 			}
 			else{
-				header("Location:users.php");
+				header("Location:http://localhost/visiocodeprojects/admin/lumino/index.php");
 			}
 			}					
 		}
@@ -57,7 +58,8 @@ include ("connect.php");
 
 <!DOCTYPE html>
   <head>
-    <title>shoppers</title>	<meta charset="utf-8" />
+	<title>shoppers</title>	<meta charset="utf-8" />
+	<link rel="shortcut icon" href="http://localhost/visiocodeprojects/image/favicon.ico" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -129,6 +131,7 @@ include ("connect.php");
 							<span onclick="validate()" class="glyphicon glyphicon-log-in"></span> Login</a></div> -->
 							
 					  </div>
+					  Don't have an account<a href="signup.php" style="color: blue"> Sign up</a><br>
 					  Forgot <a href="passchange.php" style="color: blue">password?</a>
 					</form>
 					<!-- <div class="panel-footer"><a href="popup.html" style="color:black;"><span class="glyphicon glyphicon-home"></span>Home</a></div> -->
