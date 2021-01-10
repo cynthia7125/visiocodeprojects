@@ -1028,3 +1028,23 @@ echo "<h2 style = 'color:white'>You have <strong>NO</strong> De-activated offers
 		<input style=" margin-top:15px; border-radius: 5px; color: black; width: 200px;" type="text" name="search" 
 		placeholder="Enter item name..." required/>
 		<button style="color: black;" name="submit">search</button></form>
+
+
+
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+        int min = A[0];
+		int sum;
+        for (int i = 0; i < A.length; i++) {
+            if (min%4 == 0){
+                    sum =+ A[i];
+				min = sum;	               
+            }
+            else {
+                min = 0;
+            }
+        }
+        return min;
+    }
+}

@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+  "manifest_version": 2,
     "name": "Offers",
     "version": "0.1.0",
     "description": "Get supermarket offers",
@@ -15,7 +15,7 @@
       },
      
       "browser_action": {
-          "default_popup": "index.html"
+          "default_popup": "categorypick.html"
               },
       "permissions": [
           "contextMenus",

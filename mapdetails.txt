@@ -1,0 +1,432 @@
+my API key: AIzaSyDdYo2T5DhmGwZC5tIYOB5lztLRGa5yEjQ
+
+AIzaSyC4kfKZQ5dXxc-UFw75sGsYsktSNV9qnMk
+
+	
+
+// src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4kfKZQ5dXxc-UFw75sGsYsktSNV9qnMk&callback=initMap&libraries=&v=weekly"
+// src="https://polyfill.io/v3/polyfill.min.js?features=default"
+
+
+
+
+var ajax = new XMLHttpRequest();
+var method = "GET";
+var url = "http://localhost/visiocodeprojects/map.php";
+var asynchronous = true;
+
+ajax.open(method, url, asynchronous);
+
+// ajax.send();
+
+// ajax.onreadystatechange = function(){
+//   if (this.readyState == 4 && this.status == 200){
+
+//       var local = this.responseText;
+        
+//          console.log(local);
+
+
+navigator.geolocation.getCurrentPosition(
+  function (position) {
+      initMap(document.getElementById('long').value = position.coords.latitude, 
+      document.getElementById('lat').value = position.coords.longitude)
+  },
+  function errorCallback(error) {
+      console.log(error)
+  }
+);
+function initMap() {
+  var test = '<?php implode($lat); ?>'; 
+var pointA = new google.maps.LatLng(document.getElementById('long').value, document.getElementById('lat').value),
+pointB = new google.maps.LatLng(test ),
+  myOptions = {
+    zoom: 8,
+    center: pointA
+  },
+  map = new google.maps.Map(document.getElementById('map'), myOptions),
+  // Instantiate a directions service.
+  directionsService = new google.maps.DirectionsService,
+  directionsDisplay = new google.maps.DirectionsRenderer({
+    map: map
+  })
+
+
+// get route from A to B
+calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB);
+
+}
+function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
+directionsService.route({
+origin: pointA,
+destination: pointB,
+travelMode: google.maps.TravelMode.DRIVING
+}, function(response, status) {
+if (status == google.maps.DirectionsStatus.OK) {
+directionsDisplay.setDirections(response);
+}else {
+window.alert('Directions request failed due to ' + status);
+}
+});
+}         
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+const successfulLookup = position => {
+  const { latitude, longitude } = position.coords;
+  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=1234`)
+    .then(response => response.json())
+    .then(console.log);
+};
+    window.navigator.geolocation
+    .getCurrentPosition(successfulLookup, console.log);
+
+
+
+https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=mongolian%20grill&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&locationbias=circle:2000@47.6918452,-122.2226413&key=YOUR_API_KEY
+
+
+
+
+document.getElementById("map").click(function(){
+  if(navigator.geolocation)
+  navigator.geolocation.getCurrentPosition(function(position){
+    console.log(position);
+    $.get("https://maps.googleapis.com/maps/api/geocode/json?latlng-"+ position.coords.latitude+","+position.coords.longitude+"&sensor-false", function(data){
+      console.log(data);
+    })
+    var img = new Image();
+    img.src = "https://maps.googleapis.com/maps/api/staticmap?center-" + position.coords.latitude + ", " + position.coords.longitude + "&zoom-13&size-800*400&sensor-false";
+    $('#output').html(img);
+  });
+  else
+    console.log("geolocation is not supported");
+});
+
+
+
+
+// var ajax = new XMLHttpRequest();
+// var method = "GET";
+// var url = "http://localhost/visiocodeprojects/index.php";
+// var asynchronous = true;
+
+// ajax.open(method, url, asynchronous);
+
+// ajax.send();
+
+// ajax.onreadystatechange = function(){
+//   if (this.readyState == 4 && this.status == 200){
+
+//       var data = JSON.parse(this.responseText);
+//           var html = "";
+//     // .then(res => res.json()) // comment this out for now
+//     // .then(res => res.text())          // convert to plain text
+//     // .then(text => console.log(text)) 
+//     // var data = JSON.parse(this.responseText);
+//     console.log(data);
+
+    
+//     for (var a = 0; a < data.length; a++){
+//           var supermarketname = data[a].Supermarket_name;
+//       }
+
+
+      var x = document.getElementById("map");
+      function getLocation() {
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+              x.innerHTML = "Unavailable.";
+          }
+      }
+      function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude; 
+      }
+// // Note: This example requires that you consent to location sharing when
+//       // prompted by your browser. If you see the error "The Geolocation service
+//       // failed.", it means you probably did not give permission for the browser to
+//       // locate you.
+//       function initMap() {
+//         const directionsService = new google.maps.DirectionsService();
+//         const directionsRenderer = new google.maps.DirectionsRenderer();
+//         infoWindow = new google.maps.InfoWindow;
+//         const map = new google.maps.Map(document.getElementById("map"), {
+//           zoom: 7,
+//           center: { lat: 41.85, lng: -87.65 },
+//         });
+//         directionsRenderer.setMap(map);
+      
+//         const onChangeHandler = function () {
+//           calculateAndDisplayRoute(directionsService, directionsRenderer);
+          
+//         };
+//       }
+      
+//       function location(){
+//         if (navigator.geolocation) {
+//           navigator.geolocation.getCurrentPosition(function(position) {
+//             var pos = {
+//               lat: position.coords.latitude,
+//               lng: position.coords.longitude
+//             };
+
+//             infoWindow.setPosition(pos);
+//             infoWindow.setContent('Location found.');
+//             infoWindow.open(map);
+//             map.setCenter(pos);
+//           }, function() {
+//             handleLocationError(true, infoWindow, map.getCenter());
+//           });
+//         }
+//       }
+//       function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+//         directionsService.route(
+//           {
+//             origin: {
+//               // query: document.getElementById("start").value,
+//               query: location,
+//             },
+//             destination: {
+//               query: supermarketname,
+//             },
+//             travelMode: google.maps.TravelMode.DRIVING,
+//           },
+//           (response, status) => {
+//             if (status === "OK") {
+//               directionsRenderer.setDirections(response);
+//             } else {
+//               window.alert("Directions request failed due to " + status);
+//             }
+//           }
+//         );
+//       }
+//     }
+  //   }
+  // }
+
+
+
+
+
+
+  
+// Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      function initMap() {
+        const directionsService = new google.maps.DirectionsService();
+        const directionsRenderer = new google.maps.DirectionsRenderer();
+        infoWindow = new google.maps.InfoWindow;
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 7,
+          center: { lat: 41.85, lng: -87.65 },
+        });
+        directionsRenderer.setMap(map);
+      
+        const onChangeHandler = function () {
+          calculateAndDisplayRoute(directionsService, directionsRenderer);
+          
+        };
+        document.getElementById("start").addEventListener("change", onChangeHandler);
+        document.getElementById("end").addEventListener("change", onChangeHandler);
+      }
+      
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('Location found.');
+          infoWindow.open(map);
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+      }
+      function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+        directionsService.route(
+          {
+            origin: {
+              // query: document.getElementById("start").value,
+              query: initMap,
+            },
+            destination: {
+              query: supermarketname,
+            },
+            travelMode: google.maps.TravelMode.DRIVING,
+          },
+          (response, status) => {
+            if (status === "OK") {
+              directionsRenderer.setDirections(response);
+            } else {
+              window.alert("Directions request failed due to " + status);
+            }
+          }
+        );
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript" src="map.js"></script>
+  </body>
+</html>
+
+
+
+//mapviewer.js
+
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+    if (request.method == 'RenderMap') {
+      renderMap(request.data.latitude, request.data.longitude);
+    }
+  });
+  
+  function renderMap(latitude, latitude) {
+    var map = new GMap2(document.getElementById('map'));
+    map.setCenter(new GLatLng(latitude, latitude), 13);
+    var marker = new GMarker(new GPoint(lng, lat));
+    map.addOverlay(marker);
+  }
+  
+  
+  
+  
+  
+  
+  
+  //maps.js
+  
+  // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -1.2966786, lng: 36.730956},
+          zoom: 10
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSnfheqjWjTJw1hvxdnFa1GVpokn_uq6M&callback=initMap"
+ 
+
+
+
+
+
+
+
+//webpagecontent
+// Unique ID to differentiate this content script from the rest of the web. 
+// or use the extension id from @@__extension_id__, I recall there was a bug, haven't
+// checked if it got resolved though. 
+var map = 'crx_myextension_iframe'; 
+var latitude = -1;
+var longitude = -1;
+
+/**
+ * Here is where you want to render a latitude and longitude. We create an iframe so we
+ * we can inject it. We just want to maintain a single instance of it though.
+ */
+function onRenderMap() {
+  var mapViewerDOM = document.getElementById('map');
+  if (mapViewerDOM) {
+     mapViewerDOM.parentNode.removeChild(mapViewerDOM);
+  }
+
+  mapViewerDOM = document.createElement('iframe');
+  mapViewerDOM.setAttribute('id', 'map');
+  mapViewerDOM.setAttribute('src', chrome.extension.getURL('index.html'));
+  mapViewerDOM.setAttribute('frameBorder', '0');
+  mapViewerDOM.setAttribute('width', '99.90%');
+  mapViewerDOM.setAttribute('height', '100%');
+  mapViewerDOM.setAttribute('style', 'position: fixed; top: 0; left: 0; overflow: hidden; z-index: 99999');
+  mapViewerDOM.onload = function(e) {
+     sendResponse({
+       method: 'RenderMap', 
+       data: {
+         latitude: latitude,
+         longitude: longitude
+       }
+     });
+  }
+  document.body.appendChild(mapViewerDOM);
+}
+ 
