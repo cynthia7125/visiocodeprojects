@@ -1048,3 +1048,39 @@ class Solution {
         return min;
     }
 }
+
+
+class Solution {
+    public int solution(String S) {
+        // write your code in Java SE 8
+		String[] arr = S.split("(?<=[a-z])\\.\\s+");
+        String max = arr[0];
+		int cou = 0;
+        for (int i =0; i< arr.length; i++){
+           
+			String[] words = max.split("\\s+");
+   			cou = words.length;
+            
+        }
+     return cou;   
+    }
+}
+
+
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+        int max = A[0];
+        for (int i = 1; i < A.length; i++) {
+            if (max%4 == 0){
+                if (A[i] > max) {
+                    max = A[i];
+                }
+				else {
+					max = 0;
+				}
+			}
+        }
+        return max;
+    }
+}

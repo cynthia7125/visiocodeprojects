@@ -211,7 +211,7 @@ opacity: 0.8;
     echo "<strong><h2 style = 'color:grey; font-style: italic;'>You have NO activated users</h2></strong>";
 }
 ?>
- 
+  </table>
  <?php
 
 $sql = "SELECT * FROM users WHERE activation = 2 ORDER BY username DESC";

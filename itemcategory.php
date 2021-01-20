@@ -195,7 +195,7 @@
     echo "<strong><h2 style = 'color:grey; font-style: italic;'>You have NO activated item categories</h2></strong>";
 }
 ?>
- 
+ </table>
  <?php
 
 $sql = "SELECT * FROM item_category WHERE activation = 2 ORDER BY Item_category_name DESC";

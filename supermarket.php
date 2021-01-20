@@ -194,7 +194,7 @@ color:black; font-size:20px;"><b>Active Supermarkets</b></div> -->
     echo "<strong><h2 style = 'color:grey; font-style: italic;'>You have NO activated supermarkets</h2></strong>";
 }
 ?>
- 
+ </table> 
  <?php
 
 $sql = "SELECT * FROM supermarkets WHERE activation = 2 ORDER BY Supermarket_name DESC";

@@ -12,11 +12,13 @@ ajax.onreadystatechange = function(){
 
       var data = JSON.parse(this.responseText);
           var html = "";
+          
     // .then(res => res.json()) // comment this out for now
     // .then(res => res.text())          // convert to plain text
     // .then(text => console.log(text)) 
     // var data = JSON.parse(this.responseText);
     console.log(data);
+    
 
     for (var a = 0; a < data.length; a++){
       var itemname = data[a].Item_name;
@@ -28,7 +30,7 @@ ajax.onreadystatechange = function(){
       var originalunitcost = data[a].Original_unit_cost;
       var activation = data[a].activation;
 
-      if (activation == 1){
+     
         
         html += "<tr id = 'tr'><td id = 'td' style = ' text-align: center;'><p style='background-color:white; color:black;'>"+itemname+"</p>";
         html += "<div id='' name='Offer_name' style='background-color: orange;font-size:17px; color:black;'>"+offername+"</div>";
@@ -42,10 +44,20 @@ ajax.onreadystatechange = function(){
         html += "</div>";
         html += "</td></tr>";   
 
+      
         
-        }
       }
 document.getElementById("data").innerHTML = html;
+
+      var count = data.length;
+      var c = count ++;
+
+      if (c){
+          chrome.browserAction.setBadgeText({"text": c.toString()});
+        }
+      else{
+        chrome.browserAction.setBadgeText({"text": "0"});
+      }
     }
   }
     var input, filter, table, tr, td, i, txtValue;
@@ -64,5 +76,8 @@ document.getElementById("data").innerHTML = html;
         }
       // } 
     }
+
     
+  // chrome.storage.onChanged.addListener(function(chages, storage){
   
+  // })
