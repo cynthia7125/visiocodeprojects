@@ -28,7 +28,6 @@ ajax.onreadystatechange = function(){
       var itemunitcost = data[a].Item_unit_cost;
       var savedpercentage = data[a].Saved_percentage;
       var originalunitcost = data[a].Original_unit_cost;
-      var activation = data[a].activation;
 
      
         
@@ -40,7 +39,7 @@ ajax.onreadystatechange = function(){
         html += "<hr><div name='Item_unit_cost' style='float:left; width:45%; color:black;''>Ksh."+itemunitcost+"</div>";
         html += "<div style='color:orange; float:right; width:45%; font-size:17px;' name='Saved_percentage' >-"+savedpercentage+"%</div><br/>";
         html += "<div name='Original_unit_cost' style='font-size:17px; width:45%; float: left; text-decoration: line-through; color:grey;'>Ksh."+originalunitcost+"</div>";
-        html += "<br/><div id='maps'><a href='http://localhost/visiocodeprojects/map.html' target='_blank'>Directions to "+supermarketname+"</a></div> ";
+        html += "<br/><div id='maps' name='maps' ><a class='btn' id='b1' name='maps' href='http://localhost/visiocodeprojects/mapme.php' target='_blank'>Directions to "+supermarketname+"</a></div> ";
         html += "</div>";
         html += "</td></tr>";   
 
@@ -76,8 +75,24 @@ document.getElementById("data").innerHTML = html;
         }
       // } 
     }
-
     
+  //   let OnEvent = (doc) => {
+  //     return {
+  //         on: (event, className, callback) => {
+  //             doc.addEventListener('click', (event)=>{
+  //                 if(!event.target.classList.contains(className)) return;
+  //                 callback.call(event.target, event);
+  //             }, false);
+  //         }
+  //     }
+  // };
+  
+  
+  // OnEvent(document).on('click', 'btn', function (e) {
+  //     window.console.log(this.value, e);
+  // });
+  
+    // <script type='text/javascript' src='supermarketpick.js'></script>
   // chrome.storage.onChanged.addListener(function(chages, storage){
   
   // })

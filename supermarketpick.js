@@ -19,15 +19,29 @@ ajax.onreadystatechange = function(){
         for (var a = 0; a < data.length; a++){
             
 
-            html += "<tr><td><label class='container'><input type='checkbox' name='category' >"+data[a].Supermarket_name+"<span class='checkmark'></span></label><br></td></td></tr>";  
-            var Supermarketname = data[a].checked;
+            html += "<tr><td><label class='container'><input class='btn' id='b1' type='radio' name='supermarket' >"+data[a].Supermarket_name+"<span class='checkmark'></span></label><br></td></td></tr>";  
+            var Supermarketname = data[a];
+            var val;
+            // get list of radio buttons with specified name
+                      
+            // loop through list of radio buttons
+            for (var i=0; i<Supermarketname.length; i++) {
+                if ( Supermarketname[i].checked ) { // radio checked?
+                    val = Supermarketname[i].value; // if so, hold its value in val
+                    break; // and break out of for loop
+                }
+            }
+            console.log(val);
         }
-        console.log(Supermarketname);
-        html += "<a href='index.html'><input style='color: #2F4F4F; float: right; margin: 15px;' class='button' id='submit' name='submit' type='submit' value='submit' class='panel-footer'></a>";
+        
+        html += "<a href='index.html' ><input style='color: #2F4F4F; float: right; margin: 15px;' class='button' id='submit' name='submit' type='submit' value='submit' class='panel-footer'></a>";
         
     
        document.getElementById("data").innerHTML = html;
     }   
     
     }  
+   
+
+  
    

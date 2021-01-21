@@ -82,8 +82,8 @@ opacity: 0.8;
 				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/itemcategory.php"><span>Item Categories</span></a></div>
 				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/offers.php"><span>Offers</span></a></div>
 				<div class="navbar-brand">Items</div>
-				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/admin/lumino/index.php"><span>Dashboard</span></a></div>	
-				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/barchart.php"><span>Charts</span></a></div>
+				<!-- <div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/admin/lumino/index.php"><span>Dashboard</span></a></div>	 -->
+				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/supermarketcharts.php"><span>Charts</span></a></div>
 				<div class="navbar-brand"><a href="http://localhost/visiocodeprojects/login.php"><span><em class="fa fa-power-off"> logout</em></span></a></div>
 
 				<form action="processes.php" method="POST" style="float:right; ">

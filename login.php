@@ -28,20 +28,23 @@ include ("connect.php");
 				
 			if($permissions > 1){
 				header("Location:display.php");
+				echo '<script>alert("Welcome!")</script>' ;
 			}
 			else if($permissions < 1){
 				header("Location:offers.php");
 				// header("Location:http://localhost/visiocodeprojects/admin/lumino/index.php");
+				echo '<script>alert("Welcome!")</script>' ;
 			}
 			else{
 				header("Location:http://localhost/visiocodeprojects/admin/lumino/index.php");
+				echo '<script>alert("Welcome!")</script>' ;
 			}
 			}					
 		}
 		else {
 			 
 			header("Location:login.php");
-			echo ("Login failed, retry...");
+			echo '<script>alert("Login failed, retry!")</script>' ;
 		}
 		
 	// $_SESSION['email'] = serialize($email);
