@@ -153,14 +153,14 @@
 			</div>
 			<div class="scroll-prompt-arrow-container" style=" color: #87CEEB; top: 40%; font-size: 20px" >
 				<center>
-				<b><p >Offers</p></b>
+				<b><p >click</p></b>
  				</center>
 			</div>
 			
 			
 		</div>
 
-		<br/><br/><br/><br/>
+		<br/><br/>
 
 	
 
@@ -173,22 +173,23 @@
 			<div class="col-md-2"></div>
 		</div>
 		</div>
-		<center>
-		<div class="row">
+<center>
+<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<div class="panel panel-primary" style="width:550px">
-					<div class="panel-heading" style="background-color:#87CEEB;">Home</div>
+				<div class="panel panel-primary" style="width:50%; height:40%; ">
+					<div class="panel-heading" style="background-color:#87CEEB; color: black; font-size: 25px; font-family:cursive;"><b>Home</b></div>
 					<div class="panel-body" >
-				<H1>Welcome <b><i><?php print $_SESSION["username"]; ?></i></b>.</H1>
-					<!-- <div class="panel-footer"><a href="popup.html" style="color:black;"><span class="glyphicon glyphicon-home"></span>Home</a></div> -->
-				<a href= "display.php"><button >Home</button></a>
-				</div>
+          <H1>Welcome!</H1>
+          <H3><u>Message to Supermarket Owners</u></H3>
+          <h4>Send an email to the Administrator at<a style="font-size:20px; color:#4286f4;" href="http://gmail.com"> rey@gmail.com </a>to be given rights.</h4>
+          <H3><u>Message to users</u></H3>
+          <h4>Follow the arrows on your right for an experience of a lifetime.</h4>
+        </div>
 			</div>
 			<div class="col-md-2"></div>
 		</div>
-	</div>
-	
-	</center>
+  </div>
+</center>
   </body>
 </html>

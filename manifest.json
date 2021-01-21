@@ -15,7 +15,7 @@
       },
      
       "browser_action": {
-          "default_popup": "supermarketpick.html"
+          "default_popup": "index.html"
               },
       "permissions": [
           "contextMenus",
