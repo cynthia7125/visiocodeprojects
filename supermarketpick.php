@@ -8,7 +8,9 @@ if(!$conn)
     exit;
 }
 
-$sql = mysqli_query($conn, "SELECT supermarkets.Supermarket_name, supermarkets.activation FROM supermarkets where supermarkets.activation = 1");
+$sql = mysqli_query($conn, "select DISTINCT supermarkets.Supermarket_name from supermarkets, offers, 
+                    item where offers.Supermarket_ID = supermarkets.Supermarket_ID and 
+                    item.Offer_ID = (SELECT offers.Offer_ID from offers where item.Offer_ID = offers.Offer_ID)");
 $data = array();
 while($row = mysqli_fetch_assoc($sql))
 {

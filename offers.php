@@ -131,8 +131,15 @@
 						<select class="st" name = "Supermarket_ID" required>
 
 					<option value =" ">--Select Supermarket name--</option>
-					<option value ="<?php print $spot_super_row["Supermarket_ID"]; ?>"><?php print $_SESSION['username']; ?></option>
-					
+					<?php				
+                        // output data of each row
+                            while($spot_super_row = $result->fetch_assoc()) {
+								if ($spot_super_row["Supermarket_name"] == $_SESSION['username']){
+                        ?>
+
+					<option value ="<?php 
+					print $spot_super_row["Supermarket_ID"]; ?>"><?php print $_SESSION['username']; ?></option>
+					<?php } } ?>
 					</select><br/><br/>
 <input class="st" type = "text" placeholder="Enter Offer Name" name="Offer_name" <?php if(isset($_GET["edit_offer"])){ ?>value = "<?php print $spot_super_row["Offer_name"]; ?>" <?php } ?> /><br /><br />
 <input class="st" type = "text" placeholder = "Enter Offer Duration" name="Offer_duration" <?php if(isset($_GET["edit_offer"])) {  ?>value = "<?php  print $spot_super_row["Offer_duration"];  ?>" <?php } ?> /><br /><br />

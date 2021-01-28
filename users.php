@@ -84,7 +84,7 @@ opacity: 0.8;
 				<a class="navbar-brand" href="#"><span>Offers</span>Admin</a>
 				<div class="navbar-brand">Edit Users</div>
 				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/supermarket.php"><span>Edit Supermarkets</span></a></div>
-				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/admin/lumino/index.php"><span>Dashboard</span></a></div>	
+				<!-- <div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/admin/lumino/index.php"><span>Dashboard</span></a></div>	 -->
 				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/barchart.php"><span>Charts</span></a></div>
 				<div class="navbar-brand"><a href="http://localhost/visiocodeprojects/login.php"><span><em class="fa fa-power-off"> logout</em></span></a></div>
 

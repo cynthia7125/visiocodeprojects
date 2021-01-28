@@ -45,7 +45,7 @@ BODY {
 				<a class="navbar-brand" href="#"><span>Offers</span>Admin</a>
 				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/users.php"><span>Edit Users</span></a></div>
 				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/supermarket.php"><span>Edit supermarkets</span></a></div>
-				<div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/admin/lumino/index.php"><span>Dashboard</span></a></div>	
+				<!-- <div class="navbar-brand"><a href = "http://localhost/visiocodeprojects/admin/lumino/index.php"><span>Dashboard</span></a></div>	 -->
 				<div class="navbar-brand">Charts</div>
                 <div class="navbar-brand"><a href="http://localhost/visiocodeprojects/login.php"><span><em class="fa fa-power-off"> logout</em></span></a></div>
 				</div>
@@ -186,7 +186,7 @@ BODY {
                         labels: Item_category_name,
                         datasets: [
                             {
-                                label: 'Offers per supermarket',
+                                label: 'Offers per category',
                                 backgroundColor: '#49e2ff',
                                 borderColor: '#46d5f1',
                                 hoverBackgroundColor: '#CCCCCC',

@@ -2,7 +2,7 @@
 	session_start();
 	require_once "connect.php";
 	
-	require __DIR__ . '/vendor/autoload.php';
+	// require __DIR__ . '/vendor/autoload.php';
 	// $phpToJavascript = new PHPToJavascript/PHPToJavascript();
 	// $phpToJavascript->addFromFile($inputFilename); 
 	// $jsOutput = $phpToJavascript->toJavascript();

@@ -1,6 +1,6 @@
 var ajax = new XMLHttpRequest();
 var method = "GET";
-var url = "http://localhost/visiocodeprojects/index.php";
+var url = "http://localhost/visiocodeprojects/a.php";
 var asynchronous = true;
 
 ajax.open(method, url, asynchronous);
@@ -28,7 +28,7 @@ ajax.onreadystatechange = function(){
           var savedpercentage = data[a].Saved_percentage;
           var originalunitcost = data[a].Original_unit_cost;
 
-          html += "<tr  id='tr'><td id = 'td' style = ' text-align: center;'><p style='background-color:white; color:black;'>"+itemname+"</p>";
+          html += "<tr  id = 'tr'><td id = 'td' style = ' text-align: center;'><p style='background-color:white; color:black;'>"+itemname+"</p>";
           html += "<div id='' name='Offer_name' style='background-color: orange;font-size:17px; color:black;'>"+offername+"</div>";
           html += "<img src='image/"+itemimage+"' style='height: 160px; width: 300px;'>";
           html += "<div class='cta'>";
@@ -37,7 +37,7 @@ ajax.onreadystatechange = function(){
           html += "<div style='color:orange; float:right; width:45%; font-size:17px;' name='Saved_percentage' >-"+savedpercentage+"%</div><br/>";
           html += "<div name='Original_unit_cost' style='font-size:17px; width:45%; float: left; text-decoration: line-through; color:grey;'>Ksh."+originalunitcost+"</div>";
           html += "<br/><div id='maps' name='maps' ><a class='btn' id='b1' name='maps' href='http://localhost/visiocodeprojects/mapme.php' target='_blank'>Find "+supermarketname+"</a></div> ";
-          html += "</div></td></tr>";
+          html += "</div>";
            
         }
 document.getElementById("data").innerHTML = html;
@@ -45,23 +45,22 @@ document.getElementById("data").innerHTML = html;
 
     }
   }
-    // var input, filter, table, tr, td, i, txtValue;
-    // input = document.getElementById("myInput");
-    // filter = input.value.toUpperCase();
-    // table = document.getElementById("data");
-    // tr = table.getElementsByTagName("tr");
-    // for (i = 0; i < tr.length; i++) {
-    //   td = tr[i].getElementsByTagName("td")[0];
-    //   if (td) {
-    //     txtValue = td.textContent || td.innerText;
-    //     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    //       tr[i].style.display = "";
-    //     } else {
-    //       tr[i].style.display = "none";
-    //     }
-    //   } 
-    // }
-
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("data");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      // if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      // } 
+    }
     // $(window).on("load", function(){
 
     //   var ajax = new XMLHttpRequest();

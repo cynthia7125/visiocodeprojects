@@ -27,17 +27,17 @@ include ("connect.php");
 				$_SESSION["email"] = $email;
 				
 			if($permissions > 1){
-				header("Location:display.php");
-				echo '<script>alert("Welcome!")</script>' ;
+				header("Location:home.php");
+				// echo '<script>alert("Welcome!")</script>' ;
 			}
 			else if($permissions < 1){
 				header("Location:offers.php");
 				// header("Location:http://localhost/visiocodeprojects/admin/lumino/index.php");
-				echo '<script>alert("Welcome!")</script>' ;
+				// echo '<script>alert("Welcome!")</script>' ;
 			}
 			else{
 				header("Location:http://localhost/visiocodeprojects/admin/lumino/index.php");
-				echo '<script>alert("Welcome!")</script>' ;
+				// echo '<script>alert("Welcome!")</script>' ;
 			}
 			}					
 		}
