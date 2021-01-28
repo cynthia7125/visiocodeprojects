@@ -185,6 +185,7 @@
           <h4>Send an email to the Administrator at<a style="font-size:20px; color:#4286f4;" href="http://gmail.com"> rey@gmail.com </a>to be given rights.</h4>
           <H3><u>Message to users</u></H3>
           <h4>Follow the arrows on your right for an experience of a lifetime.</h4>
+          <a class="navbar-brand" href="login.php"><span><em class="fa fa-arrow-left"> logout</em></span></a>
         </div>
 			</div>
 			<div class="col-md-2"></div>

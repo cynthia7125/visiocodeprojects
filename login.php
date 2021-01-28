@@ -36,7 +36,7 @@ include ("connect.php");
 				// echo '<script>alert("Welcome!")</script>' ;
 			}
 			else{
-				header("Location:http://localhost/visiocodeprojects/admin/lumino/index.php");
+				header("Location:users.php");
 				// echo '<script>alert("Welcome!")</script>' ;
 			}
 			}					

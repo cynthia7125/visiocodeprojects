@@ -10,7 +10,7 @@ if(!$conn)
     exit;
 }
 
-$sql = mysqli_query($conn, "select * from item where created BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 1 week) AND CURDATE( )");
+$sql = mysqli_query($conn, "select * from item where created BETWEEN DATE_SUB(CURDATE( ) ,INTERVAL 1 week) AND CURDATE( )");
 $data = array();
 while($row = mysqli_fetch_assoc($sql))
 {

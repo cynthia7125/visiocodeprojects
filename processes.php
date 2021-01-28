@@ -207,8 +207,7 @@
 		}
 	}	
 	if(isset($_POST["edit_item"])){
-		$Item_category_ID = $_POST["Item_category_ID"];
-		$Offer_ID = $_POST["Offer_ID"];
+
 		$Item_name = $_POST["Item_name"];
 		$Item_description = $_POST["Item_description"];
 		$Original_unit_cost = $_POST["Original_unit_cost"];
@@ -219,7 +218,7 @@
         
 		$Item_ID = $_POST["Item_ID"];
 		
-		$sql = "UPDATE item SET Item_category_ID = '$Item_category_ID', Offer_ID = '$Offer_ID',
+		$sql = "UPDATE item SET 
         Item_name = '$Item_name', Item_description = '$Item_description', Original_unit_cost = '$Original_unit_cost', Item_unit_cost ='$Item_unit_cost', 
         Item_quantity_in_stock = $Item_quantity_in_stock, Item_image = '$Item_image' 
         WHERE Item_ID = '$Item_ID' LIMIT 1";

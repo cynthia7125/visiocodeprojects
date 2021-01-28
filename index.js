@@ -28,7 +28,7 @@ ajax.onreadystatechange = function(){
           var savedpercentage = data[a].Saved_percentage;
           var originalunitcost = data[a].Original_unit_cost;
 
-          html += "<tr  id='tr'><td id = 'td' style = ' text-align: center;'><p style='background-color:white; color:black;'>"+itemname+"</p>";
+          html += "<tr id='tr'><td id='td' style='text-align: center;'><p style='background-color:white; color:black;'>"+itemname+"</p>";
           html += "<div id='' name='Offer_name' style='background-color: orange;font-size:17px; color:black;'>"+offername+"</div>";
           html += "<img src='image/"+itemimage+"' style='height: 160px; width: 300px;'>";
           html += "<div class='cta'>";
@@ -42,55 +42,28 @@ ajax.onreadystatechange = function(){
         }
 document.getElementById("data").innerHTML = html;
 
+  }
+}
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("data");
+  tr = table.getElementsByTagName("tr");
 
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
     }
   }
-    // var input, filter, table, tr, td, i, txtValue;
-    // input = document.getElementById("myInput");
-    // filter = input.value.toUpperCase();
-    // table = document.getElementById("data");
-    // tr = table.getElementsByTagName("tr");
-    // for (i = 0; i < tr.length; i++) {
-    //   td = tr[i].getElementsByTagName("td")[0];
-    //   if (td) {
-    //     txtValue = td.textContent || td.innerText;
-    //     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    //       tr[i].style.display = "";
-    //     } else {
-    //       tr[i].style.display = "none";
-    //     }
-    //   } 
-    // }
 
-    // $(window).on("load", function(){
-
-    //   var ajax = new XMLHttpRequest();
-    //   var method = "GET";
-    //   var url = "http://localhost/visiocodeprojects/budge.php";
-
-    //   var asynchronous = true;
-
-    //   ajax.open(method, url, asynchronous);
-
-
-    //   ajax.send();
-
-
-    //   ajax.onreadystatechange = function(){
-    //       if (this.readyState == 4 && this.status == 200){
-        
-    //           var data = JSON.parse(this.responseText);
-    //               var html = "";  
-    //               console.log(data);
-    //               // for (var a = 0; a < data.length; a++){
-    //                   // var Bvalue = data[a].toString();
-    //                   chrome.browserAction.setBadgeText({text: ""+data[0].toString()+""});
-    //               // }
-              
-    //           document.getElementById("data").innerHTML = html;
-    //       }
-    //   }
-    // });
+    
 // var clickerButton = document.getElementById("maps");
 // var onButtonClick = function(){
 //   console.log(document.getElementById("maps").value);
