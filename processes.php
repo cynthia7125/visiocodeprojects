@@ -329,8 +329,11 @@
   ?>
   </tr></table>
   <?php
-	  } else {
-	  echo "No Records available       ";
+		echo "<br><hr>";
+		echo "<p align= 'center'><a href='item.php'><font color=#2277AA font face='arial' size='6pt'>Back to Items<font></a></p>";
+	} else {
+		echo "<p align='center'><font color=#2277AA font face='arial' size='10pt'>No Records available</font> </p><hr>";
+		echo "<p align= 'center'><a href='item.php'><font color=#2277AA font face='arial' size='6pt'>Back to Items<font></a></p>";
   }
   
    
@@ -409,8 +412,11 @@
 	?>
 	</tr></table>
 	<?php
+			echo "<br><hr>";
+			echo "<p align= 'center'><a href='itemcategory.php'><font color=#2277AA font face='arial' size='6pt'>Back to Item Category<font></a></p>";
 		} else {
-		echo "No Records available       ";
+			echo "<p align='center'><font color=#2277AA font face='arial' size='10pt'>No Records available</font> </p><hr>";
+			echo "<p align= 'center'><a href='itemcategory.php'><font color=#2277AA font face='arial' size='6pt'>Back to Item Category<font></a></p>";
 	}
 	
 	 
@@ -494,8 +500,11 @@
 			?>
 			</tr></table>
 			<?php
+					echo "<br><hr>";
+					echo "<p align= 'center'><a href='offers.php'><font color=#2277AA font face='arial' size='6pt'>Back to Offers<font></a></p>";
 				} else {
-				echo "No Records available       ";
+					echo "<p align='center'><font color=#2277AA font face='arial' size='10pt'>No Records available</font> </p><hr>";
+					echo "<p align= 'center'><a href='offers.php'><font color=#2277AA font face='arial' size='6pt'>Back to Offers<font></a></p>";
 			}
 			
 			 
@@ -577,10 +586,13 @@
 		?>
 		</tr></table>
 		<?php
-			} else {
-			echo "No Records available       ";
+			echo "<br><hr>";
+			echo "<p align= 'center'><a href='users.php'><font color=#2277AA font face='arial' size='6pt'>Back to Users<font></a></p>";
+
+		} else {
+			echo "<p align='center'><font color=#2277AA font face='arial' size='10pt'>No Records available</font> </p><hr>";
+			echo "<p align= 'center'><a href='users.php'><font color=#2277AA font face='arial' size='6pt'>Back to Users<font></a></p>";
 		}
-		
 			
 		}
 
@@ -655,9 +667,14 @@
 					}
 				?>
 				</tr></table>
+				
 				<?php
+						echo "<br><hr>";
+						echo "<p align= 'center'><a href='supermarket.php'><font color=#2277AA font face='arial' size='6pt'>Back to Supermarket<font></a></p>";
+					
 					} else {
-					echo "No Records available       ";
+						echo "<p align='center'><font color=#2277AA font face='arial' size='10pt'>No Records available</font> </p><hr>";
+						echo "<p align= 'center'><a href='supermarket.php'><font color=#2277AA font face='arial' size='6pt'>Back to Supermarket<font></a></p>";
 				}
 				
 					

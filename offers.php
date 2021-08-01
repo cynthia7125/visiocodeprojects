@@ -109,9 +109,9 @@
 	include "connect.php";
 	if(isset($_GET["edit_offer"])){
         $Offer_ID  = $_GET["edit_offer"];
-        $spot_super = "SELECT * FROM offers WHERE Offer_ID = '$Offer_ID' LIMIT 1";
-		$spot_super_res = $conn->query($spot_super);
-        $spot_super_row = $spot_super_res->fetch_assoc();
+        $spot_offers = "SELECT * FROM offers WHERE Offer_ID = '$Offer_ID' LIMIT 1";
+		$spot_offers_res = $conn->query($spot_offers);
+        $spot_offers_row = $spot_offers_res->fetch_assoc();
         
 	}
 	?>
@@ -123,7 +123,7 @@
 					<form method="POST" action = "processes.php" >
 					<?php
 
-					$sql = "SELECT * FROM supermarkets";
+					$sql = "SELECT * FROM supermarkets, offers where supermarkets.Supermarket_ID = offers.Supermarket_ID";
 
 					$result = $conn->query($sql);
 						// output data of each row
@@ -137,17 +137,17 @@
 								if ($spot_super_row["Supermarket_name"] == $_SESSION['username']){
                         ?>
 
-					<option value ="<?php 
-					print $spot_super_row["Supermarket_ID"]; ?>"><?php print $_SESSION['username']; ?></option>
-					<?php } } ?>
+					<option value ="<?php print $spot_super_row["Supermarket_ID"]; ?>"><?php print $_SESSION['username']; ?></option>
+					<?php 		} 
+							} ?>
 					</select><br/><br/>
-<input class="st" type = "text" placeholder="Enter Offer Name" name="Offer_name" <?php if(isset($_GET["edit_offer"])){ ?>value = "<?php print $spot_super_row["Offer_name"]; ?>" <?php } ?> /><br /><br />
-<input class="st" type = "text" placeholder = "Enter Offer Duration" name="Offer_duration" <?php if(isset($_GET["edit_offer"])) {  ?>value = "<?php  print $spot_super_row["Offer_duration"];  ?>" <?php } ?> /><br /><br />
+<input class="st" type = "text" placeholder="Enter Offer Name" name="Offer_name" <?php if(isset($_GET["edit_offer"])){ ?>value = "<?php print $spot_offers_row["Offer_name"]; ?>" <?php } ?> /><br /><br />
+<input class="st" type = "text" placeholder = "Enter Offer Duration" name="Offer_duration" <?php if(isset($_GET["edit_offer"])) {  ?>value = "<?php  print $spot_offers_row["Offer_duration"];  ?>" <?php } ?> /><br /><br />
 
 	<?php if(isset($_GET["edit_offer"])){ ?>
-		<input type="hidden" value = "<?php print $spot_super_row["Offer_ID"]; ?>" name = "Offer_ID" />
+		<input type="hidden" value = "<?php print $spot_offers_row["Offer_ID"]; ?>" name = "Offer_ID" />
 		
-		<input style="float:right;" type="submit" value="Edit <?php print $spot_super_row["Offer_name"]; ?>" name = "edit_offer">
+		<input style="float:right;" type="submit" value="Edit <?php print $spot_offers_row["Offer_name"]; ?>" name = "edit_offer">
 	<?php }else{ ?>
 		<input style="float:right;" type="submit" value="New offer" name = "New_offer">
 	<?php } ?>

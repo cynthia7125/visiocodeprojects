@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -146,7 +149,7 @@
   
 <?php
 
-	$sql = "SELECT * FROM item_category WHERE activation = 1 ORDER BY Item_category_name DESC";
+	$sql = "SELECT DISTINCT Item_category_name FROM item_category, item, offers, supermarkets WHERE supermarket_name = 'Weacon' ORDER BY Item_category_name DESC";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -222,6 +225,9 @@ if ($result->num_rows > 0) {
 <?php
 // output data of each row
 while($row = $result->fetch_assoc()) {
+	$sql = "SELECT * FROM item_category WHERE activation = 2 ORDER BY Item_category_name DESC";
+	$result = $conn->query($sql);
+
 ?>
 	<tr><td  style = "width:10%; background-color: #;"><?php print $row["Item_category_ID"]; ?></td>
 		<td  style = "width: 60%; background-color: #;"><?php print $row["Item_category_name"]; ?></td>

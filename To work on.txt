@@ -1,0 +1,28 @@
+Edits to be done on the project
+
+1. After editing the a user and making them a supermarket they should be able to be seen in the edit supermarkets page.
+2. Failed login message
+3. Send an email to the Administrator at rey@gmail.com to be given rights.   
+	- Send an email to the Administrator at rey@gmail.com 	requesting for admin rights and as you wait, enjoy the 	user experience.
+4. Item category in the supermarkets login repeats one item a number of times. Toiletries for all supermarket users.
+5. Offers in supermarket login when editing the drop down brings one name several times.
+6. Add a select from files in the image selection on the items page for supermarkets.
+7. On the items displayed at the extension, edited items within the week should be shown.
+8. Edit the scale for the charts to have them begin form zero not 1. Hae defined titles for the charts.
+9. Align the de-activated table in offers page, supermarket login.(Check how its done in edit supermarkets)
+10. Change the title saved to offers in the items page, supermarket login.
+11. Add a cancel edit in all adit enabled pages.
+12. Add items trigger has issues.
+
+Error: INSERT INTO item (Item_category_ID, Offer_ID, Item_name, Item_description, Original_unit_cost, Item_unit_cost, Item_quantity_in_stock, Item_image) VALUES ('1', '16', 'Light bulb', 'White light bulbs, Light sensor, Motion sensor lights', '2200', '1855', '25', 'bulb.jpg')
+Can't update table 'item' in stored function/trigger because it is already used by statement which invoked this stored function/trigger
+
+13. New offers works perfectly and does not need reloading, Check how its done and implement where needed.
+14. added a new supermarket and in the users i get a new record with no email, make the email auto generate when you add a new supermarket or add another text box when adding supermarkets for the email and/or password.
+15. check if supermarket name exists in the users or supermarkets and throw an error when submitted.
+
+
+
+Thought process
+1. Make the main admin able to edit all items the supermarkets an edit.
+2. figure out how supermarkets can bulk upload.
