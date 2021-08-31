@@ -120,12 +120,13 @@ opacity: 0.8;
 	}
 	?>
 	
-		<div class="panel panel-primary" style="width:550px; height:370px; font-family:cursive; ">
+		<div class="panel panel-primary" style="width:550px; height:430px; font-family:cursive; ">
 			<div class="panel-heading" style="background-color:#87CEEB; color:black; font-size:20px;"><b>New User</b></div>
 			<div class="panel-body" >		
 			  <div class="row" style="margin:10px; ">
 					<form method="POST" action = "processes.php" >
 <input class="st" type = "text" placeholder="Enter username" name="username" <?php if(isset($_GET["edit_user"])){ ?>value = "<?php print $spot_super_row["username"]; ?>" <?php } ?> /><br /><br />
+<input class="st" type = "text" placeholder="Enter address" name="address" <?php if(isset($_GET["edit_user"])){ ?>value = "<?php print $spot_super_row["address"]; ?>" <?php } ?> /><br /><br />
 <input class="st" type = "text" placeholder="Enter email" name="email" <?php if(isset($_GET["edit_user"])){ ?>value = "<?php print $spot_super_row["email"]; ?>" <?php } ?> /><br /><br />
 <input class="st" type = "text" placeholder="permissions: 0 = supermarket, 1 = Admin, 2 = User" name="permissions" <?php if(isset($_GET["edit_user"])){ ?>value = "<?php print $spot_super_row["permissions"]; ?>" <?php } ?> /><br /><br />
 <input class="st" type = "password" placeholder="Enter password" name="password" <?php if(isset($_GET["edit_user"])){ ?>value = "<?php print $spot_super_row["password"]; ?>" <?php } ?> /><br /><br />
@@ -160,7 +161,7 @@ opacity: 0.8;
   
 <?php
 
-	$sql = "SELECT * FROM users WHERE activation = 1 ORDER BY username DESC";
+	$sql = "SELECT * FROM users WHERE activation = 1 and permissions = 2 ORDER BY username DESC";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {

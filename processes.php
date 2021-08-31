@@ -94,10 +94,11 @@
 	
 	if(isset($_POST["New_User"])){
 		$username = $_POST["username"];
+		$address = $_POST["address"];
         $email = $_POST["email"];
         $password = $_POST["password"];
 		
-		$sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', md5('$password'))";
+		$sql = "INSERT INTO users (username, address, email, password) VALUES ('$username', '$address', '$email', md5('$password'))";
 
 		if ($conn->query($sql) === TRUE) {
 			$conn->close();
@@ -110,12 +111,13 @@
 	if(isset($_POST["edit_user"])){
 		$User_ID = $_POST["user_ID"];
 		$username = $_POST["username"];
+		$address = $_POST["address"];
 		$email = $_POST["email"];
 		$permissions = $_POST["permissions"];
         $password = $_POST["password"];
 		
 		
-		$sql = "UPDATE users SET username = '$username', email = '$email', permissions = '$permissions', password = '$password' 
+		$sql = "UPDATE users SET username = '$username', address = '$address', email = '$email', permissions = '$permissions', password = '$password' 
 		WHERE User_ID = '$User_ID' LIMIT 1";
 
 		if ($conn->query($sql) === TRUE) {

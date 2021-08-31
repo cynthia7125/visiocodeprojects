@@ -149,9 +149,8 @@
   
 <?php
 
-	$sql = "SELECT DISTINCT Item_category_name FROM item_category, item, offers, supermarkets WHERE supermarket_name = 'Weacon' ORDER BY Item_category_name DESC";
+	$sql = "SELECT DISTINCT Item_category_name FROM item_category, item, offers, supermarkets WHERE supermarket_name = '".$_SESSION['username']."' ORDER BY Item_category_name DESC";
 	$result = $conn->query($sql);
-
 	if ($result->num_rows > 0) {
 		// output data of each row
 ?>

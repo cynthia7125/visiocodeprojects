@@ -82,9 +82,30 @@ background-repeat: no-repeat;
         <div class="panel panel-primary" style="width:550px">
             <div class="panel-heading" style="background-color:#87CEEB;">SignUp Form</div>
             <div class="panel-body" >
-            
+            <div class="row" style="margin:10px; ">
             <form onSubmit="return validate()" id="form" method="POST" action = "" >
-              <div class="row" style="margin:10px; ">
+              
+              <?php
+
+                $sql = "SELECT permission_name from permissions";
+
+                $result = $conn->query($sql);
+                        
+                ?>
+                <select class="st" name = "permissions" required>
+
+                    <option value =" ">--Select account type--</option>
+
+                    <?php				
+                    // output data of each row
+                        while($spot_super_row = $result->fetch_assoc()) {
+                       
+                    ?>
+
+                    <option value ="<?php print $spot_super_row["permissions"]; ?>"><?php print $spot_super_row["permission_name"]; ?></option>
+                    <?php } ?>
+                </select><br/><br/>
+                
                 <label >Username: </label><br>
                 <input  id= "username" class="st" type="text" name="username"  placeholder="Enter your Username" required/><br>
                 <label >Password: </label><br>
